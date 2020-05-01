@@ -3,7 +3,6 @@ h1.title {
     text-align: center;
 }
 
-
 body {
     font-family: 'Helvetica', sans-serif;
     min-width: 900px;
@@ -26,13 +25,15 @@ body {
     padding-top:50px;
     padding-right:50px;
     padding-left:50px;
-}
+} 
 
 #matches {
     text-align: center;
     font-family: 'Helvetica', sans-serif;    
     font-size: 3vw;
 }
+
+
 
 .container {
     display: flex;                 
@@ -58,10 +59,14 @@ body {
     outline-color: black;
     outline-style: groove;
     outline-width: 2px;
-  }
+}
+
+.column:hover {
+    background-color:#ffff99;
+}
   
-  .row:after {
+.row:after {
     content: "";
     display: table;
     clear: both;
-  }
+}
