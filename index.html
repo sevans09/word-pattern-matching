@@ -47,8 +47,8 @@ $( document ).ready(function() {
     <div class="modal-header">
       <h3>Game over!</h3>
     </div>
-    <div class="modal-body">
-      <p>Score:</p>
+    <div class="modal-body" >
+      <p id="scoreModal">Score:</p>
     </div>
     <div class="modal-footer">
       <a href="#" id="startbutton" rel="modal:close" onclick="startGame()" class="btn btn-primary">Play again!</a>
@@ -66,6 +66,9 @@ $( document ).ready(function() {
         <button class="column" id="word2" style="font-size:3vw"></button>
         <button class="column" id="word3" style="font-size:3vw"></button>
       </div>
+</div>
+<div class="row">
+    <h3 id="score">Score: 0</h3>
 </div>
 
 <div class="row">
@@ -91,6 +94,11 @@ $("button").click(function() {
                 setTimeout(function(){
                     newSetup();
                 },500);
+                var str = $("#score").text();
+                var curr_score = str.split(" ").pop();
+                console.log('curr score is', curr_score);
+                curr_score = Number(curr_score) + 1;
+                $("#score").text("Score: " + curr_score);
             }
             else {
                 $(this).css("background-color", "red");
