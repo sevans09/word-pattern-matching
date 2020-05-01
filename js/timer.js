@@ -1,17 +1,18 @@
-// Update the count down every 1 second
-$( document ).ready(function() {
-    console.log( "ready!" );
-});
 function startTimer() {
     console.log('starting timer')
-    var timeleft = 120;
+    var timeleft = 10;
     var downloadTimer = setInterval(function(){
       if(timeleft <= 0){
         clearInterval(downloadTimer);
+        outOfTime();
       }
-      document.getElementById("demo").value = 10 - timeleft;
-      document.getElementById("demo").innerHTML = timeleft;
+      document.getElementById("timer").value = 10 - timeleft;
+      document.getElementById("timer").innerHTML = timeleft;
       timeleft -= 1;
     }, 1000);
 }
 
+function outOfTime() {
+  console.log("out of time")
+  $('#endModal').modal('show');
+}

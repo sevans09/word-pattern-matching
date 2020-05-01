@@ -70,3 +70,8 @@ body {
     display: table;
     clear: both;
 }
+
+#timer {
+    text-align:center;
+    font-size: 4vw;
+}
