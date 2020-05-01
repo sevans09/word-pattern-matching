@@ -1,9 +1,15 @@
 var dict = {
     "words": [
       { "word":"light", correct:"bright", "matches":[ "flight", "mask", "bright", "frog" ] },
-      { "word":"bug", correct:"buzz", "matches":[ "hug", "case", "cup", "buzz" ] }
-    //   { "word":"BMW", "matches":[ "320", "X3", "X5" ] },
-    //   { "word":"Fiat", "matches":[ "500", "Panda" ] }
+      { "word":"bug", correct:"buzz", "matches":[ "hug", "case", "cup", "buzz" ] },
+      { "word":"coat", correct:"warm", "matches":[ "warm", "word", "shoes", "number" ] },
+      { "word":"speak", correct:"lips", "matches":[ "bottle", "lips", "shirt", "fuzz" ] },
+      { "word":"fire", correct:"burns", "matches":[ "leaks", "burns", "spray", "soft" ] },
+      { "word":"love", correct:"heart", "matches":[ "band", "water", "round", "heart" ] },
+      { "word":"write", correct:"notes", "matches":[ "phone", "notes", "bat", "clean" ] },
+      { "word":"car", correct:"drive", "matches":[ "low", "drive", "fly", "walk" ] },
+      { "word":"shoe", correct:"laces", "matches":[ "laces", "keys", "wallet", "belt" ] },
+      { "word":"horse", correct:"trot", "matches":[ "climb", "hair", "notes", "trot" ] }
     ]
    }
   
