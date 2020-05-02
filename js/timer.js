@@ -7,7 +7,7 @@ function startTimer() {
         outOfTime();
       }
       document.getElementById("timer").value = 10 - timeleft;
-      document.getElementById("timer").innerHTML = timeleft;
+      document.getElementById("timer").innerHTML = timeleft + "s remaining";
       timeleft -= 1;
     }, 1000);
 }
