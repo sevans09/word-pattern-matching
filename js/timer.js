@@ -1,6 +1,5 @@
 function startTimer() {
-    console.log('starting timer')
-    var timeleft = 10;
+    var timeleft = 9;
     var downloadTimer = setInterval(function(){
       if(timeleft <= 0){
         clearInterval(downloadTimer);
