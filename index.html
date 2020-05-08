@@ -8,15 +8,9 @@
 <script type="text/javascript" src="js/setup.js"></script>
 <script type="text/javascript" src="js/playgame.js"></script>
 <head>
-        <h1 id="bigOne">hello</h1>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
-    
+    <h1 id="leaderboard">hello</h1>
 
     <script>
     // Your web app's Firebase configuration
@@ -34,12 +28,7 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
-  
-    // getting the text value from the database
-    var bigOne = document.getElementById('bigOne');
 
-    var dbRef = firebase.database().ref().child('text');
-    dbRef.on('value', snap => bigOne.innerText = snap.val());
     </script>
 </head>
 
@@ -50,6 +39,12 @@
 <script type="text/javascript">
 $(window).on('load',function(){
     $('#myModal').modal('show');
+    // getting the text value from the database
+    var leaderboard = document.getElementById('leaderboard');
+    // initialize leaderboard
+    var dbRef = firebase.database().ref().child('text');
+    // want to add high score here
+    dbRef.on('value', snap => leaderboard.innerText = snap.val());
 });
 
 $( document ).ready(function() {
