@@ -4,10 +4,44 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-<script type="text/javascript" src="js/timer.js"></script>
 <script type="text/javascript" src="data.json"></script>
 <script type="text/javascript" src="js/setup.js"></script>
 <script type="text/javascript" src="js/playgame.js"></script>
+<head>
+        <h1 id="bigOne">hello</h1>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+    
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyC37sv_gMpSVTNsDxBVtUfejIF3jrb0Wb4",
+        authDomain: "word-pattern-matching.firebaseapp.com",
+        databaseURL: "https://word-pattern-matching.firebaseio.com",
+        projectId: "word-pattern-matching",
+        storageBucket: "word-pattern-matching.appspot.com",
+        messagingSenderId: "340396414391",
+        appId: "1:340396414391:web:288a806bc858a6322b0432",
+        measurementId: "G-703B5XN61N"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+  
+    // getting the text value from the database
+    var bigOne = document.getElementById('bigOne');
+
+    var dbRef = firebase.database().ref().child('text');
+    dbRef.on('value', snap => bigOne.innerText = snap.val());
+    </script>
+</head>
 
 <title>Word Slap Jack Solitaire</title>
 <h1 class="title">Word Slap Jack Solitaire</h1></br>
