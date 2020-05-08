@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <script type="text/javascript" src="js/timer.js"></script>
 <script type="text/javascript" src="data.json"></script>
-<script type="text/javascript" src="js/generatewords.js"></script>
 <script type="text/javascript" src="js/setup.js"></script>
 <script type="text/javascript" src="js/playgame.js"></script>
 
@@ -91,18 +90,21 @@ $("button").click(function() {
             //  check if clicked word is correct
             if (dict.words[i].correct === fired_button) {
                 $(this).css("background-color", "green");
-                // trigger new setup if correct
-                setTimeout(function(){
-                    newSetup();
-                },500);
+                
                 var str = $("#score").text();
                 var curr_score = str.split(" ").pop();
-                console.log('curr score is', curr_score);
                 curr_score = Number(curr_score) + 1;
                 $("#score").text("Score: " + curr_score);
+                // trigger new setup if correct
+                setTimeout(function(){
+                    $(this).css("background-color", "green");
+                    newSetup();
+                },500);
             }
             else {
-                $(this).css("background-color", "red");
+                setTimeout(function(){
+                    $(this).css("background-color", "red");
+                },500);
             }
         }
     }
