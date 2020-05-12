@@ -3,6 +3,6 @@ Word game for Tufts Literacy Corps. A type of "word slap jack solitaire" to help
 
 ### TODO
 - [ ] Fix play again buttons so that the game restarts
-- [ ] Add leaderboard
+- [ ] Add leaderboard using Firebase - sook-hee is working on
 - [ ] Generate more patterns
 - [ ] Style timer, score, leaderboard
