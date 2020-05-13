@@ -5,6 +5,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <script type="text/javascript" src="data.json"></script>
+<script type="text/javascript" src="js/firebase.js"></script>
 <script type="text/javascript" src="js/setup.js"></script>
 <script type="text/javascript" src="js/playgame.js"></script>
 <head>
@@ -42,7 +43,8 @@ $(window).on('load',function(){
     // getting the text value from the database
     var leaderboard = document.getElementById('leaderboard');
     // initialize leaderboard
-    var dbRef = firebase.database().ref().child('text');
+    // idk fix this
+    var dbRef = firebase.database().ref('Scores/').child('-M7EkiDbkyso73VfwuIs');
     // want to add high score here
     dbRef.on('value', snap => leaderboard.innerText = snap.val());
 });
