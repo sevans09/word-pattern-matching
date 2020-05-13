@@ -8,6 +8,19 @@ body {
     min-width: 900px;
 }
 
+#infobox {
+    outline-color: black;
+    outline-style: groove;
+    outline-width: 2px;
+    font-size: 1vw;
+    text-align:center;
+    float:right;
+    margin-right:10%;
+    padding: 25px;
+    position: absolute;
+    right: 0;
+}
+
 #word {
     text-align: center;
     font-family: 'Helvetica', sans-serif;
@@ -69,14 +82,4 @@ body {
     content: "";
     display: table;
     clear: both;
-}
-
-#timer {
-    text-align:center;
-    font-size: 2.5vw;
-}
-
-#score {
-    text-align:center;
-    font-size: 2.5vw;
 }

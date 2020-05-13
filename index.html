@@ -11,7 +11,18 @@
 <head>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
-    <h1 id="leaderboard"></h1>
+    <h1 id="infobox">
+        <div class="row" id="leaderboard">
+            <h3></h3>
+        </div> 
+        <div class="row" >
+            <h3 id="score">Score: 0</h3>
+        </div>
+        
+        <div class="row">
+            <h3 id="timer">10s remaining</h3>
+        </div>
+    </h1>
 
     <script>
     // Your web app's Firebase configuration
@@ -80,22 +91,13 @@ $( document ).ready(function() {
 
   
 <div class="row">
-    <div class="row" id="word">
-    </div>
-
+    <div class="row" id="word"></div>
     <div class="container" id="matches">
         <button class="column" id="word0" style="font-size:3vw"></button>
         <button class="column" id="word1" style="font-size:3vw"></button>
         <button class="column" id="word2" style="font-size:3vw"></button>
         <button class="column" id="word3" style="font-size:3vw"></button>
     </div>
-</div>
-<div class="row">
-    <h3 id="score">Score: 0</h3>
-</div>
-
-<div class="row">
-    <h3 id="timer">10s remaining</h3>
 </div>
 
 
