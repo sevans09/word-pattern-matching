@@ -11,7 +11,7 @@
 <head>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
-    <h1 id="leaderboard">hello</h1>
+    <h1 id="leaderboard"></h1>
 
     <script>
     // Your web app's Firebase configuration
@@ -34,18 +34,12 @@
 </head>
 
 <title>Word Slap Jack Solitaire</title>
-<h1 class="title">Word Slap Jack Solitaire</h1></br>
-
 
 <script type="text/javascript">
 $(window).on('load',function(){
     $('#myModal').modal('show');
-    // getting the text value from the database
     var leaderboard = document.getElementById('leaderboard');
-    // initialize leaderboard
-    // idk fix this
-    var dbRef = firebase.database().ref('Scores/').child('-M7EkiDbkyso73VfwuIs');
-    // want to add high score here
+    var dbRef = firebase.database().ref('Scores/-M7EkiDbkyso73VfwuIs').child('playerScore');
     dbRef.on('value', snap => leaderboard.innerText = snap.val());
 });
 
@@ -58,7 +52,6 @@ $( document ).ready(function() {
     }
 });
 </script>
-
 
 <div class="modal hide fade" id="myModal">
     <div class="modal-header">
@@ -73,7 +66,6 @@ $( document ).ready(function() {
     </div>
   </div>
 
-<!-- add score here -->
 <div class="modal hide fade" id="endModal">
     <div class="modal-header">
       <h3>Game over!</h3>

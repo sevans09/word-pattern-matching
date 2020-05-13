@@ -1,4 +1,10 @@
 function startGame() {
+    $("#score").text("Score: 0");
+    var dbRef = firebase.database().ref('Scores/-M7EkiDbkyso73VfwuIs').child('playerScore');
+    // want to add high score here
+    dbRef.on('value', snap => leaderboard.innerText = snap.val());
+    var curr_top = $("#leaderboard").text();
+    $("#leaderboard").html("Top score is " + curr_top);
     startTimer();
 }
 
@@ -23,6 +29,8 @@ function outOfTime() {
   $("#scoreModal").text("Score: " + curr_score);
   $('#endModal').modal('show');
   addPost("sook", curr_score);
+  var curr_top = $("#leaderboard").text();
+  $("#leaderboard").html("Top score is " + curr_top);
 }
 
 
