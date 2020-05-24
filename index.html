@@ -5,7 +5,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <script type="text/javascript" src="data.json"></script>
-<script type="text/javascript" src="js/firebase.js"></script>
 <script type="text/javascript" src="js/setup.js"></script>
 <script type="text/javascript" src="js/playgame.js"></script>
 <head>
@@ -49,9 +48,19 @@
 <script type="text/javascript">
 $(window).on('load',function(){
     $('#myModal').modal('show');
+
     var leaderboard = document.getElementById('leaderboard');
-    var dbRef = firebase.database().ref('Scores/-M7EkiDbkyso73VfwuIs').child('playerScore');
-    dbRef.on('value', snap => leaderboard.innerText = snap.val());
+    var dbRef = firebase.database().ref();
+    let first, second, third;
+    dbRef.once('value').then(function(snapshot) {
+        first =  snapshot.val().topScore;
+        second =  snapshot.val().secondScore;
+        third =  snapshot.val().thirdScore;
+
+        leaderboard.innerText += "Highest score: " + first + "\n";
+        leaderboard.innerText += "Second highest score: " + second  + "\n";
+        leaderboard.innerText += "Third highest score: " + third  + "\n";
+    });
 });
 
 $( document ).ready(function() {
@@ -115,7 +124,6 @@ $("button").click(function() {
             //  check if clicked word is correct
             if (dict.words[i].correct === fired_button) {
                 $(this).css("background-color", "green");
-                
                 var str = $("#score").text();
                 var curr_score = str.split(" ").pop();
                 curr_score = Number(curr_score) + 1;
