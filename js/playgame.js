@@ -1,4 +1,16 @@
 function startGame() {
+    leaderboard.innerText = "";
+    var dbRef = firebase.database().ref();
+    dbRef.once('value').then(function(snapshot) {
+        first =  snapshot.val().topScore;
+        second =  snapshot.val().secondScore;
+        third =  snapshot.val().thirdScore;
+
+        leaderboard.innerText += "Highest score: " + first + "\n";
+        leaderboard.innerText += "Second highest score: " + second  + "\n";
+        leaderboard.innerText += "Third highest score: " + third  + "\n";
+    });
+    console.log("startin again")
     $("#score").text("Score: 0");
     startTimer();
 }
@@ -24,9 +36,6 @@ function outOfTime() {
     // get from input name box here
     // if the score is greater than lowest, call add post
     addPost("sook", curr_score);
-
-    var curr_top = $("#leaderboard").text();
-    $("#leaderboard").html("Top score is " + curr_top);
 }
 
 
@@ -62,8 +71,4 @@ function addPost(name, score) {
       }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
     });
-    console.log(score, top, second, third)
-    
-
-   
 }
