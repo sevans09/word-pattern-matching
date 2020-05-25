@@ -62,6 +62,7 @@ $(window).on('load',function(){
         firstName = snapshot.val().topName;
         secondName = snapshot.val().secondName;
         thirdName = snapshot.val().thirdName;
+        console.log('third nam and score', thirdName, third)
 
         leaderboard.innerText += firstName + " " + first + "\n";
         leaderboard.innerText += secondName + " " + second  + "\n";
@@ -103,7 +104,7 @@ $( document ).ready(function() {
       <a href="#" id="startbutton" rel="modal:close" onclick="startGame()" class="btn btn-primary">Play again!</a>
     </div>
     <input type="text" class="form-control"  id="addName" placeholder="Leaderboard Name">
-    <input type="button" class="btn btn-primary" id="submitName" name ="name">Submit</button>
+    <input type="button" class="btn btn-primary" id="submitName" name ="name" value="Submit"></button>
 </div>
 
   
