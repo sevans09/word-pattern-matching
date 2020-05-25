@@ -10,10 +10,14 @@
 <head>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+    
+    <div style="background-color: yellow">
+        <div class="row" id="leadertitle">
+            <strong>LEADERBOARD:</strong>
+        </div>
+        <div class="row" id="leaderboard"></div>
+    </div> 
     <h1 id="infobox">
-        <div class="row" id="leaderboard">
-            <h3></h3>
-        </div> 
         <div class="row" >
             <h3 id="score">Score: 0</h3>
         </div>
@@ -49,17 +53,19 @@
 $(window).on('load',function(){
     $('#myModal').modal('show');
 
-    var leaderboard = document.getElementById('leaderboard');
     var dbRef = firebase.database().ref();
-    let first, second, third;
     dbRef.once('value').then(function(snapshot) {
         first =  snapshot.val().topScore;
         second =  snapshot.val().secondScore;
         third =  snapshot.val().thirdScore;
 
-        leaderboard.innerText += "Highest score: " + first + "\n";
-        leaderboard.innerText += "Second highest score: " + second  + "\n";
-        leaderboard.innerText += "Third highest score: " + third  + "\n";
+        firstName = snapshot.val().topName;
+        secondName = snapshot.val().secondName;
+        thirdName = snapshot.val().thirdName;
+
+        leaderboard.innerText += firstName + " " + first + "\n";
+        leaderboard.innerText += secondName + " " + second  + "\n";
+        leaderboard.innerText += thirdName + " " + third  + "\n";
     });
 });
 
@@ -96,16 +102,18 @@ $( document ).ready(function() {
     <div class="modal-footer">
       <a href="#" id="startbutton" rel="modal:close" onclick="startGame()" class="btn btn-primary">Play again!</a>
     </div>
+    <input type="text" class="form-control"  id="addName" placeholder="Leaderboard Name">
+    <input type="button" class="btn btn-primary" id="submitName" name ="name">Submit</button>
 </div>
 
   
 <div class="row">
     <div class="row" id="word"></div>
     <div class="container" id="matches">
-        <button class="column" id="word0" style="font-size:3vw"></button>
-        <button class="column" id="word1" style="font-size:3vw"></button>
-        <button class="column" id="word2" style="font-size:3vw"></button>
-        <button class="column" id="word3" style="font-size:3vw"></button>
+        <button name="wordButton" class="column" id="word0" style="font-size:3vw"></button>
+        <button name="wordButton" class="column" id="word1" style="font-size:3vw"></button>
+        <button name="wordButton" class="column" id="word2" style="font-size:3vw"></button>
+        <button name="wordButton" class="column" id="word3" style="font-size:3vw"></button>
     </div>
 </div>
 
@@ -113,7 +121,7 @@ $( document ).ready(function() {
 
 <script type="text/javascript">
 
-$("button").click(function() {
+$('button[name="wordButton"]').click(function() {
     // clear colors from all other buttons
     $(".column").css("background-color", "lightyellow");
 
@@ -143,6 +151,21 @@ $("button").click(function() {
     }
 });
 
+$('button[name="addName"]').click(function() {
+    var value = $('input[id="addName"]').val();
+    console.log("value of name is", value)
+    addPost("sook", value)
+    $('tr td:last').after("<tr><td>" + value + "</td></tr>");
+    $('input[id="addHousemate"]').val('');
+});
 
+$('#submitName').click(function() {
+    var value = $('input[id="addName"]').val();
+    var str = $("#score").text();
+    var curr_score = str.split(" ").pop();
+    addPost(value, curr_score)
+    $('tr td:last').after("<tr><td>" + value + "</td></tr>");
+    $('input[id="addHousemate"]').val('');
+});
 
 </script>

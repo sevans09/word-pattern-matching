@@ -6,11 +6,14 @@ function startGame() {
         second =  snapshot.val().secondScore;
         third =  snapshot.val().thirdScore;
 
-        leaderboard.innerText += "Highest score: " + first + "\n";
-        leaderboard.innerText += "Second highest score: " + second  + "\n";
-        leaderboard.innerText += "Third highest score: " + third  + "\n";
+        firstName = snapshot.val().topName;
+        secondName = snapshot.val().secondName;
+        thirdName = snapshot.val().thirdName;
+
+        leaderboard.innerText += firstName + " " + first + "\n";
+        leaderboard.innerText += secondName + " " + second  + "\n";
+        leaderboard.innerText += thirdName + " " + third  + "\n";
     });
-    console.log("startin again")
     $("#score").text("Score: 0");
     startTimer();
 }
@@ -33,19 +36,16 @@ function outOfTime() {
     var curr_score = str.split(" ").pop();
     $("#scoreModal").text("Score: " + curr_score);
     $('#endModal').modal('show');
-    // get from input name box here
-    // if the score is greater than lowest, call add post
-    addPost("sook", curr_score);
 }
 
-
 // places score in correct bin
+// called when user clicks submit button on end modal
 function addPost(name, score) {
     var dbRef = firebase.database().ref();
     var top, second, third;
     // want to add high score here
-    dbRef.on('value', snap => leaderboard.innerText = snap.val());
-    
+    // verify that the button wasn't double clicked
+    // check that name and scores don't match
     dbRef.once('value').then(function(snapshot) {
         top =  snapshot.val().topScore;
         second =  snapshot.val().secondScore;

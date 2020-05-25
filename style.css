@@ -9,9 +9,6 @@ body {
 }
 
 #infobox {
-    outline-color: black;
-    outline-style: groove;
-    outline-width: 2px;
     font-size: 1vw;
     text-align:center;
     float:right;
@@ -82,4 +79,28 @@ body {
     content: "";
     display: table;
     clear: both;
+}
+
+#leaderboard {
+    font-size: 1vw;
+    float: left;
+    margin-top:50px;
+    margin-left:6%;
+    padding: 25px;
+    position: absolute;
+    left: 0;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 1vw;
+}
+
+#leadertitle {
+    font-size: 1.1vw;
+    font-weight: 800;
+    float: left;
+    margin-top:20px;
+    margin-left:6%;
+    padding: 25px;
+    position: absolute;
+    left: 0;
+    font-family: 'Helvetica', sans-serif;
 }
