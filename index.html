@@ -152,14 +152,6 @@ $('button[name="wordButton"]').click(function() {
     }
 });
 
-$('button[name="addName"]').click(function() {
-    var value = $('input[id="addName"]').val();
-    console.log("value of name is", value)
-    addPost("sook", value)
-    $('tr td:last').after("<tr><td>" + value + "</td></tr>");
-    $('input[id="addHousemate"]').val('');
-});
-
 $('#submitName').click(function() {
     var value = $('input[id="addName"]').val();
     var str = $("#score").text();
