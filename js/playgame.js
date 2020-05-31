@@ -9,7 +9,6 @@ function startGame() {
         firstName = snapshot.val().topName;
         secondName = snapshot.val().secondName;
         thirdName = snapshot.val().thirdName;
-        console.log('third nam and score', thirdName, third)
 
         leaderboard.innerText += firstName + " " + first + "\n";
         leaderboard.innerText += secondName + " " + second  + "\n";
@@ -20,13 +19,13 @@ function startGame() {
 }
 
 function startTimer() {
-    var timeleft = 9;
+    var timeleft = 119;
     var downloadTimer = setInterval(function(){
       if(timeleft <= 0){
         clearInterval(downloadTimer);
         outOfTime();
       }
-      document.getElementById("timer").value = 10 - timeleft;
+      document.getElementById("timer").value = 120 - timeleft;
       document.getElementById("timer").innerHTML = timeleft + "s remaining";
       timeleft -= 1;
     }, 1000);
@@ -56,17 +55,12 @@ function addPost(name, score) {
 
         if (score > top && !checkAlreadyClicked(name, score, topName, top, secondName, second, thirdName, third)) {
             // move all down
-            console.log("third name is", thirdName, third)
             dbRef.update({ topScore: Number(score) });
             dbRef.update({ topName: name });
             dbRef.update({ secondScore: top });
-            console.log("third name is", thirdName, third)
             dbRef.update({ secondName: topName });
-            console.log("third name is", thirdName, third)
             dbRef.update({ thirdScore: second });
-            console.log("third name is", thirdName, third)
             dbRef.update({ thirdName: secondName });
-            console.log("third name is", thirdName, third)
         }
         else if (score > second && !checkAlreadyClicked(name, score, topName, top, secondName, second, thirdName, third)) {
             // move bottom two down
@@ -77,7 +71,6 @@ function addPost(name, score) {
         }
         else if (score > third && !checkAlreadyClicked(name, score, topName, top, secondName, second, thirdName, third)) {
             // replace lowest score
-            console.log("third name is", thirdName, third)
             dbRef.update({ thirdScore: Number(score) });
             dbRef.update({ thirdName: name });
         }

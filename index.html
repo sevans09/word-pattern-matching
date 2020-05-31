@@ -23,7 +23,7 @@
         </div>
         
         <div class="row">
-            <h3 id="timer">10s remaining</h3>
+            <h3 id="timer">120s remaining</h3>
         </div>
     </h1>
 
@@ -111,10 +111,8 @@ $( document ).ready(function() {
 <div class="row">
     <div class="row" id="word"></div>
     <div class="container" id="matches">
-        <button name="wordButton" class="column" id="word0" style="font-size:3vw"></button>
-        <button name="wordButton" class="column" id="word1" style="font-size:3vw"></button>
-        <button name="wordButton" class="column" id="word2" style="font-size:3vw"></button>
-        <button name="wordButton" class="column" id="word3" style="font-size:3vw"></button>
+        <button name="wordButton" class="column" id="word0" style="font-size:3vw; margin-left:40%"></button>
+        <button name="wordButton" id="passButton">Pass</button>
     </div>
 </div>
 
@@ -161,4 +159,5 @@ $('#submitName').click(function() {
     $('input[id="addHousemate"]').val('');
 });
 
+// when pass button clicked reset card
 </script>
