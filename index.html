@@ -62,7 +62,6 @@ $(window).on('load',function(){
         firstName = snapshot.val().topName;
         secondName = snapshot.val().secondName;
         thirdName = snapshot.val().thirdName;
-        console.log('third nam and score', thirdName, third)
 
         leaderboard.innerText += firstName + " " + first + "\n";
         leaderboard.innerText += secondName + " " + second  + "\n";
@@ -85,8 +84,8 @@ $( document ).ready(function() {
       <h3>Welcome to Word Slap Jack Solitaire!</h3>
     </div>
     <div class="modal-body">
-      <p>Find the word that matches the pattern as fast as you can! Score high enough and end up on
-          the leaderboard. </p>
+      <p>Click the word if it matches the pattern as fast as you can and click pass if the word doess not
+          match the pattern. Score high enough and end up on the leaderboard. </p>
     </div>
     <div class="modal-footer">
       <a href="#" id="startbutton" rel="modal:close" onclick="startGame()" class="btn btn-primary">Play!</a>
@@ -112,7 +111,7 @@ $( document ).ready(function() {
     <div class="row" id="word"></div>
     <div class="container" id="matches">
         <button name="wordButton" class="column" id="word0" style="font-size:3vw; margin-left:40%"></button>
-        <button name="wordButton" id="passButton">Pass</button>
+        <button name="passButton" id="passButton">Pass</button>
     </div>
 </div>
 
@@ -148,6 +147,12 @@ $('button[name="wordButton"]').click(function() {
             }
         }
     }
+});
+
+$('button[name="passButton"]').click(function() {
+    // clear colors from all other buttons
+    $(".column").css("background-color", "lightyellow");
+    newSetup();
 });
 
 $('#submitName').click(function() {
