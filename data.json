@@ -1,15 +1,45 @@
 var dict = {
     "words": [
-      { "word":"light", correct:"bright", "matches":[ "flight", "mask", "bright", "frog" ] },
-      { "word":"bug", correct:"buzz", "matches":[ "hug", "case", "cup", "buzz" ] },
-      { "word":"coat", correct:"warm", "matches":[ "warm", "word", "shoes", "number" ] },
-      { "word":"speak", correct:"lips", "matches":[ "bottle", "lips", "shirt", "fuzz" ] },
-      { "word":"fire", correct:"burns", "matches":[ "leaks", "burns", "spray", "soft" ] },
-      { "word":"love", correct:"heart", "matches":[ "band", "water", "round", "heart" ] },
-      { "word":"write", correct:"notes", "matches":[ "phone", "notes", "bat", "clean" ] },
-      { "word":"car", correct:"drive", "matches":[ "low", "drive", "fly", "walk" ] },
-      { "word":"shoe", correct:"laces", "matches":[ "laces", "keys", "wallet", "belt" ] },
-      { "word":"horse", correct:"trot", "matches":[ "climb", "hair", "notes", "trot" ] }
+      { "matches":[ "bam", "cam" ] },
+      { "matches":[ "bat", "cat", "fat" ] },
+      { "matches":[ "cap", "nap", "trap" ] },
+      { "matches":[ "fan", "can", "ban" ] },
+      { "matches":[ "gash", "hash", "mash" ] },
+      { "matches":[ "hand", "land", "band" ] },
+      { "matches":[ "lot", "pot", "not" ] },
+      { "matches":[ "mop", "pop", "top" ] },
+      { "matches":[ "log", "hog" ] },
+      { "matches":[ "lock", "mock", "sock" ] },
+      { "matches":[ "quip", "rip", "tip" ] },
+      { "matches":[ "rig", "dig", "pig" ] },
+      { "matches":[ "rid", "lid" ] },
+      { "matches":[ "whim", "rim", "dim" ] },
+      { "matches":[ "spin", "fin" ] },
+      { "matches":[ "fit", "spit", "wit", "pit", "lit" ] },
+      { "matches":[ "fish", "wish", "dish" ] },
+      { "matches":[ "pin", "tin", "win" ] },
+      { "matches":[ "trill" , "mill", "will", "sill", "still"] },
+      { "matches":[ "slick", "pick", "sick", "lick" ] },
+      { "matches":[ "list", "mist", "wrist" ] },
+      { "matches":[ "rub", "nub", "tub" ] },
+      { "matches":[ "shut", "mutt", "cut", "rut" ] },
+      { "matches":[ "cup", "pup" ] },
+      { "matches":[ "thug", "shrug", "pug" ] },
+      { "matches":[ "shun", "pun", "fun" ] },
+      { "matches":[ "flush", "mush", "push" ] },
+      { "matches":[ "struck", "puck", "luck", "duck" ] },
+      { "matches":[ "stump", "lump", "pump", "dump" ] },
+      { "matches":[ "fret", "bet", "pet", "set", "net", "wet" ] },
+      { "matches":[ "then", "pen", "ten" ] },
+      { "matches":[ "pled", "wed", "led", "red", "fed" ] },
+      { "matches":[ "spend", "send", "tend", "bend" ] },
+      { "matches":[ "fleck", "speck", "wreck", "deck" ] }
     ]
    }
   
+  //  need to check if they match ends
+  // randomly generate two numbers, one in the range of number of endings we have
+  //  oen in the range of number of matches with that enidng
+  // for each setup, do this. then when clicked find the word in the top card
+  // and check if the word clicked is also in that. if not, they should pass
+  // more often than not, should generate another word within matches
