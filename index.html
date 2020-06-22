@@ -70,12 +70,26 @@ $(window).on('load',function(){
 });
 
 $( document ).ready(function() {
-    var num_entries = Math.round(Math.random() * 9);
-    $("#word").html(dict.words[num_entries].word)
-    for (j in dict.words[num_entries].matches) {
-        var word = "#word" + j;
-        $(word).html(dict.words[num_entries].matches[j])
-    }
+    var num_entries = Math.round(Math.random() * 34) - 1;
+    var num_matches = dict.words[num_entries].matches.length;
+    var rand_match_1 = Math.round(Math.random() * num_matches) - 1;
+    $("#word").html(dict.words[num_entries].matches[rand_match_1])
+  
+        var num_matches = dict.words[num_entries].matches.length;
+        var rand_match_2 = Math.round(Math.random() * num_matches);
+        var switch_num = Math.round(Math.random() * 1);
+        console.log("sswitch_numis", switch_num);
+        console.log("rsand maatch is, ", rand_match_2)
+        // then randomize length
+        //  then mod by number of words
+
+        switch_num = switch_num *  Math.round(Math.random() * num_matches);
+        switch_num = switch_num % num_matches;
+        rand_match_2 = switch_num;
+        if (rand_match_2 == rand_match_1) {
+            rand_match_2 = (rand_match_2 + 1) % num_matches
+        }
+        $("#word0").html(dict.words[num_entries].matches[rand_match_2])
 });
 </script>
 
@@ -122,13 +136,16 @@ $( document ).ready(function() {
 $('button[name="wordButton"]').click(function() {
     // clear colors from all other buttons
     $(".column").css("background-color", "lightyellow");
-
+    console.log("button clicked")
     var fired_button = $(this).text();
     var curr_word = $("#word").text();
     for (i in dict.words) {
-        if (dict.words[i].word === curr_word) {
-            //  check if clicked word is correct
-            if (dict.words[i].correct === fired_button) {
+        for (j in dict.words[i].matches) {
+            console.log("word is", dict.words[i].matches)
+            //  once word is found, check if curr_word is in matches
+            if (dict.words[i].matches[j] === curr_word) {
+                //  check if clicked word is correct
+                console.log("found it", curr_word, dict.words[i].matches)
                 $(this).css("background-color", "green");
                 var str = $("#score").text();
                 var curr_score = str.split(" ").pop();
@@ -145,8 +162,9 @@ $('button[name="wordButton"]').click(function() {
                     $(this).css("background-color", "red");
                 },500);
             }
+            }
         }
-    }
+    
 });
 
 $('button[name="passButton"]').click(function() {
